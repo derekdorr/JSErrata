@@ -68,3 +68,20 @@ More Info: ~~TODO~~
 ## Bitwise Division
 
 ~~TODO~~
+
+# Unexpected Results
+
+## Non-Atomic Evaluation
+
+      var x = 0;
+      
+      function f() {
+            x = x + 10;
+            return 1;
+      }
+      
+      x += f(); // x === 1
+
+The preceding code, if executed will result in `x = 1`. This is a combination of shorthand and typical left-to-right evaluation. `x += f()` is just shorthand for `x = x + f()`. Because the expression `x + f()` is evaluated left-to-right, the interpreter will first obtain the value of the first operand, `x`, which is zero, and then obtain the value of the second operand, `f()`, which is one. Changes to `x` that happen inside `f()` don't affect the collected operand values.
+
+Based on an [article about non-atomic operations in C#](http://blogs.msdn.com/b/oldnewthing/archive/2014/08/14/10549885.aspx)

@@ -61,7 +61,7 @@ More Info: ~~TODO~~
 
 # Exciting Short-Hand
 
-## Bang-Tilda
+## Bang-Tilde
 
 ~~TODO~~
 

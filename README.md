@@ -21,7 +21,7 @@ Furthermore, so long as an array contains a single element which will evaluate t
       [""] == false
       [[[[null]]]] == false
 
-Additional Information: ~~TODO~~
+Additional Information: This appears to be due to loose type conversions.  When evaluating on an array, the contents are cast to string.  Without multiple elements in an array, there are no commas to make the result truthy.  And so, the inner most value is evaluated for truthiness.
 
 ## The Null Case
 
@@ -57,13 +57,24 @@ The following statement are true. Test them in the Javascript console of your ch
 
 While emptry strings will evaluate to false, any non-empty string that is not "1" or "0" will evaluate to neither true nor false, though they are techinically truthy.
 
-More Info: ~~TODO~~
+More Info: Don't use loose inequalities when comparing with true or false. 
 
 # Exciting Short-Hand
 
 ## Bang-Tilde
 
-~~TODO~~
+Bit-wise and boolean not operators can be combined to quickly compare values to -1.
+
+      !~-1 === true
+      !~0 === false
+      !~1 === false
+
+This is due to the nature of bitwise not operators.
+
+      ~1 === 0
+      ~(any other int) !== 0
+   
+      !0 === true
 
 ## Bitwise Division
 

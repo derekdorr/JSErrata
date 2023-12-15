@@ -1,11 +1,10 @@
-JSErrata
-========
+# JSErrata
 
 Documentation of JavaScript Compiler/SPEC inconsistencies and other things worth mentioning.
 
-# Improper Boolean Conversions
+## Improper Boolean Conversions
 
-## Arrays
+### Arrays
 
 The following statements are true.  Test them in the Javascript console of your choice:
 
@@ -23,7 +22,7 @@ Furthermore, so long as an array contains a single element which will evaluate t
 
 Additional Information: This appears to be due to loose type conversions.  When evaluating on an array, the contents are cast to string.  Without multiple elements in an array, there are no commas to make the result truthy.  And so, the inner most value is evaluated for truthiness.
 
-## The Null Case
+### The Null Case
 
 The following statements are true. Test them in the Javascript console of your choice:
 
@@ -36,7 +35,7 @@ While null is "falsy", in it's standalone form, it will evaluate to neither true
 
 Additional Information: ~~TODO~~
 
-## Special Strings
+### Special Strings
 
 The following statement are true. Test them in the Javascript console of your choice:
 
@@ -54,14 +53,13 @@ The following statement are true. Test them in the Javascript console of your ch
     
       "" == false
 
-
 While emptry strings will evaluate to false, any non-empty string that is not "1" or "0" will evaluate to neither true nor false, though they are techinically truthy.
 
-More Info: Don't use loose inequalities when comparing with true or false. 
+More Info: Don't use loose inequalities when comparing with true or false.
 
-# Exciting Short-Hand
+## Exciting Short-Hand
 
-## Bang-Tilde
+### Bang-Tilde
 
 Bit-wise and boolean not operators can be combined to quickly compare values to -1.
 
@@ -76,13 +74,13 @@ This is due to the nature of bitwise not operators.
    
       !0 === true
 
-## Bitwise Division
+### Bitwise Division
 
 ~~TODO~~
 
-# Unexpected Results
+## Unexpected Results
 
-## Non-Atomic Evaluation
+### Non-Atomic Evaluation
 
       var x = 0;
       
